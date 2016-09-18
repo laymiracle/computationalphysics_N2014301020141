@@ -2,7 +2,7 @@
 homework
 Exercise_01:
 
-Exercise_02:
+[Exercise_02:](https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/lijinhong.py)
 
 Exercise_03:
 
