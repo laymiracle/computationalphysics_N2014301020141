@@ -4,7 +4,9 @@ homework
 [Exercise_02:](https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/lijinhong.py)
 
 [Exercise_03:]（https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/Homework%2003.py）
+
 thanks for ZONGYUE
+
 Exercise_04:
 
 Exercise_05:
