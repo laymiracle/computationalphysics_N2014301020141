@@ -7,7 +7,7 @@ homework
 
 thanks for ZONGYUE
 
-Exercise_04:
+[Exercise_03:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/Homework%2004)
 
 Exercise_05:
 
