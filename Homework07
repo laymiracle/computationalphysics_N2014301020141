@@ -1,0 +1,35 @@
+#题目
+练习3.14：重复前面的问题，但给两人摆略有不同的阻尼因素。如何Lyapunov指数的值与图3.7中比较？
+#思路
+对于真实的物理摆，给当FD一定值时，我们可以观察到混乱的现象。
+当混乱的时候，程序如下：
+#程序
+import pylab as pl
+from math import*
+class pendulum:
+    def __init__(self, time_step=0.04, theta=0.2,g=9.8,l=9.8,q =0.5,fd=1.2,wd=0.66666):
+        self.ta=theta
+        self.theta=[theta]
+        self.pi= math.pi
+        self.w = [0]
+        self.q = q
+        self.fd = fd
+        self.wd = wd
+        self.wo = g/l
+        self.t = [0]
+        self.dt = time_step  
+    def run(self):
+        _time = 0 
+        while(self.t[-1]<=60):
+            self.w.append(self.w[-1]-(self.wo*math.sin(self.theta[-1])+self.q*self.w[-1]-self.fd*math.sin(self.wd*self.t[-1]))*self.dt)
+            tmp=self.w[-1]-(self.wo*math.sin(self.theta[-1])+self.q*self.w[-1]-self.fd*math.sin(self.wd*self.t[-1]))*self.dt
+            self.theta.append(self.theta[-1] + tmp * self.dt)
+            self.t.append(_time)    
+            _time += self.dt
+            if (self.theta[-1] <= -math.pi):
+                self.theta[-1] = self.theta[-1] + self.pi + math.pi
+            if (self.theta[-1] >= math.pi):
+                self.theta[-1] = self.theta[-1] - self.pi - math.pi
+a=pendulum()
+a.run()
+a.show_results()
