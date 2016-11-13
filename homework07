@@ -1,0 +1,81 @@
+#主摆程序
+import pylab as pl
+from math import*
+class pendulum:
+    def __init__(self, time_step=0.04, theta=0.2,g=9.8,l=9.8,q =0.5,fd=1.2,wd=0.66666):
+        self.ta=theta
+        self.theta=[theta]
+        self.pi= math.pi
+        self.w = [0]
+        self.q = q
+        self.fd = fd
+        self.wd = wd
+        self.wo = g/l
+        self.t = [0]
+        self.dt = time_step  
+    def run(self):
+        _time = 0 
+        while(self.t[-1]<=60):
+            self.w.append(self.w[-1]-(self.wo*math.sin(self.theta[-1])+self.q*self.w[-1]-self.fd*math.sin(self.wd*self.t[-1]))*self.dt)
+            tmp=self.w[-1]-(self.wo*math.sin(self.theta[-1])+self.q*self.w[-1]-self.fd*math.sin(self.wd*self.t[-1]))*self.dt
+            self.theta.append(self.theta[-1] + tmp * self.dt)
+            self.t.append(_time)    
+            _time += self.dt
+            if (self.theta[-1] <= -math.pi):
+                self.theta[-1] = self.theta[-1] + self.pi + math.pi
+            if (self.theta[-1] >= math.pi):
+                self.theta[-1] = self.theta[-1] - self.pi - math.pi
+a=pendulum()
+a.run()
+a.show_results()
+
+#更改阻尼因素，计算角度变化量
+import pylab as pl
+from math import*
+class pendulum:
+    def __init__(self, time_step=0.04, theta1=0.2,theta2=0.2,g=9.8,l=9.8,q1 =0.5,q2=0.499,fd=1.2,wd=0.66666):
+        self.theta1=[theta1]
+        self.theta2=[theta2]
+        self.pi= math.pi
+        self.w1 = [0]
+        self.w2 = [0]
+        self.dtheta=[math.fabs(theta1-theta2)]
+        self.q1 = q1
+        self.q2 = q2
+        self.fd = fd
+        self.wd = wd
+        self.wo = g/l
+        self.t = [0]
+        self.dt = time_step  
+    def run(self):
+        _time = 0 
+        while(self.t[-1]<=200):
+            self.w1.append(self.w1[-1]-(self.wo*math.sin(self.theta1[-1])+self.q1*self.w1[-1]-self.fd*math.sin(self.wd*self.t[-1]))*self.dt)
+            tmp1=self.w1[-1]-(self.wo*math.sin(self.theta1[-1])+self.q1*self.w1[-1]-self.fd*math.sin(self.wd*self.t[-1]))*self.dt
+            self.theta1.append(self.theta1[-1] + tmp1 * self.dt)
+            self.w2.append(self.w2[-1]-(self.wo*math.sin(self.theta2[-1])+self.q2*self.w2[-1]-self.fd*math.sin(self.wd*self.t[-1]))*self.dt)
+            tmp2=self.w2[-1]-(self.wo*math.sin(self.theta2[-1])+self.q2*self.w2[-1]-self.fd*math.sin(self.wd*self.t[-1]))*self.dt
+            self.theta2.append(self.theta2[-1] + tmp2 * self.dt)
+            self.dtheta.append(math.loga(math.fabs(self.theta1[-1]-self.theta2[-1])))
+            self.t.append(_time)    
+            _time += self.dt            
+            if (self.theta1[-1] <= -math.pi):
+                self.theta1[-1] = self.theta1[-1] + self.pi + math.pi
+            if (self.theta1[-1] >= math.pi):
+                self.theta1[-1] = self.theta1[-1] - self.pi - math.pi
+            if (self.theta2[-1] <= -math.pi):
+                self.theta2[-1] = self.theta2[-1] + self.pi + math.pi
+            if (self.theta2[-1] >= math.pi):
+                self.theta2[-1] = self.theta2[-1] - self.pi - math.pi
+    def show_results(self):
+        plot1=pl.plot(self.t,self.dtheta,"r")
+        pl.xlabel(" time($s$)")
+        pl.ylabel("log(d_angle)($radians$)")
+        pl.title("log(d_angle) versus time")
+        pl.show()
+a=pendulum()
+a.run()
+a.show_results()
+
+
+thanks for Jiangjun
