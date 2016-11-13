@@ -16,7 +16,7 @@ acle/computationalphysics_N2014301020141/blob/master/homework%2006)
 
 [Exercise_07:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/Homework07)
 
-[Exercise_08:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/homework08https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/Homework07)
+[Exercise_08:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/homework08)
 
 Exercise_09:
 
