@@ -11,11 +11,12 @@ thanks for ZONGYUE
 
 [Exercise_05:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/Homework05)
 
-[Exercise_06:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/homework%2006)
+[Exercise_06:] (https://github.com/laymir
+acle/computationalphysics_N2014301020141/blob/master/homework%2006)
 
 [Exercise_07:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/Homework07)
 
-Exercise_08:
+[Exercise_08:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/homework08https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/Homework07)
 
 Exercise_09:
 
