@@ -20,7 +20,7 @@ acle/computationalphysics_N2014301020141/blob/master/homework%2006)
 
 Exercise_09:
 
-Exercise_10:
+[Exercise_10:] (https://github.com/laymiracle/computationalphysics_N2014301020141/blob/master/homework10)
 
 Exercise_11:
 
