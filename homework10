@@ -1,0 +1,74 @@
+#思路
+根据相对论求出F与r的关系，然后有：
+#代码
+import pylab as pl
+from math import*
+class planet:
+    def __init__(self, time_step=0.0001, a=0.39,e=0.206,beta=2,alpha=0.004):
+        self.vx = [0]
+        self.vy=[2*math.pi*((1-e)/(a*(1+e)))**0.5]
+        self.r = [a+a*e]
+        self.x =[a+a*e] 
+        self.y = [0]
+        self.a = a   
+        self.e = e
+        self.beta = beta
+        self.alpha = alpha  
+        self.t1 = [0]
+        self.theta = [0]
+        self.theta1 = [0]       
+        self.t = [0]
+        self.dt = time_step  
+    def run(self):
+        _time = 0 
+        while(self.t[-1]<=0.5):
+            self.vx.append(self.vx[-1]-4*self.x[-1]*self.dt*(math.pi)**2/(self.r[-1]**(self.beta+1)))
+            self.vy.append(self.vy[-1]-4*self.y[-1]*self.dt*(math.pi)**2/(self.r[-1]**(self.beta+1)))       
+            self.x.append(self.x[-1] +self.vx[-1] * self.dt)
+            self.y.append(self.y[-1] +self.vy[-1] * self.dt)
+            self.r.append((self.x[-1] ** 2 + self.y[-1] ** 2) ** 0.5)           
+            self.t.append(_time)    
+            _time += self.dt
+    def show_results(self):
+        plot1=pl.plot(self.x,self.y,".")
+        pl.xlim(-1,1)
+        pl.ylim(-1,1)
+        ax = pl.gca()
+        ax.set_aspect(1)
+        pl.title("Mercury ")
+        pl.show() 
+import math
+a=planet()
+a.run()
+a.show_results()
+class perihelion(planet):
+    def run(self):
+        _time = 0 
+        while(self.t[-1]<=5):
+            self.vx.append(self.vx[-1]-4*self.x[-1]*self.dt*(1+self.alpha/self.r[-1]**2)*(math.pi)**2/(self.r[-1]**(self.beta+1)))
+            self.vy.append(self.vy[-1]-4*self.y[-1]*self.dt*(1+self.alpha/self.r[-1]**2)*(math.pi)**2/(self.r[-1]**(self.beta+1)))      
+            self.x.append(self.x[-1] +self.vx[-1] * self.dt)
+            self.y.append(self.y[-1] +self.vy[-1] * self.dt)    
+            self.r.append((self.x[-1] ** 2 + self.y[-1] ** 2) ** 0.5)
+            tmp1=self.vx[-1]-4*self.x[-1]*self.dt*(1+self.alpha/self.r[-1]**2)*(math.pi)**2/(self.r[-1]**(self.beta+1))
+            tmp2=self.vy[-1]-4*self.y[-1]*self.dt*(1+self.alpha/self.r[-1]**2)*(math.pi)**2/(self.r[-1]**(self.beta+1))     
+            tmp3=self.x[-1] +tmp1 * self.dt
+            tmp4=self.y[-1] +tmp2 * self.dt 
+            tmp5=(tmp3 ** 2 +tmp4 ** 2) ** 0.5
+            if (self.r[-1]>self.r[-2] and self.r[-1]>tmp5):         
+                self.theta1.append(math.atan(abs(self.y[-1]/self.x[-1])))
+                self.theta.append(self.theta1[-1]*180/math.pi)
+                self.t1.append(_time)                   
+            self.t.append(_time)    
+            _time += self.dt 
+    def show_results(self):
+        plot1=pl.plot(self.t1,self.theta,"b")
+        pl.xlim(0,1)
+        pl.ylim(0,20)
+        pl.title("perihelion of Mercury ")
+        pl.show() 
+import math
+a=perihelion()
+a.run()
+a.show_results()        
+最后计算得水星进动率约0.000127degree/yr
