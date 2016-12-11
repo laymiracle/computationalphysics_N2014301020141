@@ -25,7 +25,9 @@ Exercise_09:
 Exercise_11:
 
 [Exercise_12:] (http://www.jianshu.com/p/3b7ebb683cc3)
+
 thanks for Jiang Jun
+
 Exercise_13:
 
 Exercise_14:
