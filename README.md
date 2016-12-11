@@ -24,7 +24,7 @@ Exercise_09:
 题目4.10
 Exercise_11:
 
-[Exercise_12:]（http://www.jianshu.com/p/3b7ebb683cc3）
+[Exercise_10:] (http://www.jianshu.com/p/3b7ebb683cc3)
 
 Exercise_13:
 
